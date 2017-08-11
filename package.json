@@ -1,0 +1,42 @@
+{
+  "name": "life",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "babel-loader": "^7.1.1",
+    "react-scripts": "0.4.1"
+  },
+  "dependencies": {
+    "axios": "^0.14.0",
+    "body-parser": "^1.15.2",
+    "create-react-class": "^15.6.0",
+    "csvtojson": "^1.1.7",
+    "express": "^4.14.0",
+    "fast-csv": "^2.4.0",
+    "foreman": "^2.0.0",
+    "fs": "0.0.1-security",
+    "marked": "^0.3.6",
+    "material-ui": "^0.18.7",
+    "mongoose": "^4.6.0",
+    "nodemon": "^1.10.2",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-dom-factories": "^1.0.1",
+    "react-dropdown": "^1.2.5",
+    "react-file-reader": "^1.1.1",
+    "react-json-table": "^0.1.1",
+    "react-table": "^6.5.3",
+    "react-tap-event-plugin": "^2.0.1",
+    "scikit-node": "^0.2.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start-dev": "nf start -p 3000",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/config/eslint.js"
+  }
+}
