@@ -3,6 +3,8 @@ A MERN (Mongo, Express, React, Node) app allowing users to train Machine Learnin
 
 Uses Sklearn for Label Encoding, Hot-One Encoding, and ML Models. We spawn child processes to Python and use callbacks to route throughout the app.
 
+Requires: SKLearn and Numpy
+
 TODO:
 visualize algorithms and accuracies
 add more options for ml algorithms to choose from
