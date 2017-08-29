@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Main from './Main';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'; 
 
-
 ReactDOM.render(
   <MuiThemeProvider>
     <Main 

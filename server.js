@@ -45,8 +45,8 @@ app.use(function(req, res, next) {
   next()
 })
 
-function showEntries(db, res) {
-  var cursor = db.collection('life').find().limit(3)
+function showEntries(db, res, tablename) {
+  var cursor = db.collection(tablename).find().limit(5)
   var docs = []
   cursor.each(function(err, doc) {
     assert.equal(err, null)
@@ -68,7 +68,7 @@ router.post('/csv', function(req, res) {
 		db.collection('life').update({username: 'life'}, jsonObj, {upsert: true})
   	})
   	.on('done',()=>{
-  		showEntries(db, res)
+  		showEntries(db, res, 'life')
     })
   })
 })
@@ -82,7 +82,7 @@ router.post('/test', function(req, res) {
 		db.collection('death').update({username: 'death'}, jsonObj, {upsert: true})
   	})
   	.on('done',()=>{
-  		showEntries(db, res)
+  		showEntries(db, res, 'death')
     })
   })
 })
@@ -90,7 +90,7 @@ router.post('/test', function(req, res) {
 router.get('/data', function(req, res) {
   MongoClient.connect(mongoDBUrl, function(err, db) {
   	assert.equal(null, err)
-  	showEntries(db, res)
+  	showEntries(db, res, 'life')
 	})
 })
 

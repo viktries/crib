@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import ReactDOM from 'react-dom'
-import DropDownMenu from 'material-ui/DropDownMenu'
+import SelectField from 'material-ui/SelectField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import RaisedButton from 'material-ui/RaisedButton'
 import ReactFileReader from 'react-file-reader'
-
+import JsonTable from './rts.js'
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 
 class Dropdown extends React.Component {
 
@@ -22,7 +23,10 @@ class Dropdown extends React.Component {
       axios.post(url+'/test', {data: reader.result})
       .then(function (response) {
         // updateTable(response, url)
-        alert("so close")
+        ReactDOM.render(
+          <JsonTable rows={ response.data } />,
+          document.getElementById('predTable')
+        )
       })
       .catch(err => {
         console.log(err)
@@ -51,13 +55,16 @@ class Dropdown extends React.Component {
     return (
       <MuiThemeProvider>
       <div>
-        <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+      <Toolbar>
+        <ToolbarGroup firstChild={true}>
+        <SelectField value={this.state.value} onChange={this.handleChange} floatingLabelText="Param to Train">
           {this.props.items}
-        </DropDownMenu>
+        </SelectField>
         <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
-          <RaisedButton className='btn'>Upload CSV to Predict</RaisedButton>
+          <RaisedButton secondary={true} className='btn' label="Upload CSV to Predict"/>
         </ReactFileReader>
-        <RaisedButton onClick={this.train}>Train Log Regression on Param</RaisedButton>
+        <RaisedButton primary={true} onClick={this.train} label="Train Log Regression on Param"/>
+        </ToolbarGroup></Toolbar>
        </div>
       </MuiThemeProvider>
     )

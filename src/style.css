@@ -1,0 +1,20 @@
+th {
+	padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #26C6DA ;
+    color: white;
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+}
+
+tr:hover {background-color: #E0F7FA;}
+
+td {
+	border: 1px solid #ddd;
+    padding: 8px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+}
