@@ -5,7 +5,7 @@ import SelectField from 'material-ui/SelectField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import RaisedButton from 'material-ui/RaisedButton'
 import ReactFileReader from 'react-file-reader'
-import JsonTable from './rts.js'
+import JsonTable from '../easy-json-table/rjt.js'
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 
 class Dropdown extends React.Component {
