@@ -4,7 +4,7 @@ import ReactFileReader from 'react-file-reader'
 import ReactDOM from 'react-dom'
 import RaisedButton from 'material-ui/RaisedButton'
 import injectTapEventPlugin from 'react-tap-event-plugin'
-import JsonTable from '../easy-json-table/rjt.js'
+import JsonTable from 'react-json-table';
 import MenuItem from 'material-ui/MenuItem'
 import Dropdown from './dropdown.js'
 import AppBar from 'material-ui/AppBar';
