@@ -3,12 +3,11 @@ var express = require('express')
 var MongoClient = require('mongodb').MongoClient
 var assert = require('assert')
 var bodyParser = require('body-parser')
-var path = require("path")
+var path = require('path')
 var app = express()
 var router = express.Router()
-var csv=require('csvtojson')
+var csv= require('csvtojson')
 var child = require('child_process')
-
 var port = process.env.API_PORT || 3001
 var mongoDBUrl = 'mongodb://life:life@ds159747.mlab.com:59747/life'
 
@@ -32,18 +31,6 @@ var SKLearn = function(module, estimator, methods, cb){
     cb(results)
   })
 }
-
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json({limit: '50mb'}))
-
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Credentials', 'true')
-  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE')
-  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')
-  res.setHeader('Cache-Control', 'no-cache')
-  next()
-})
 
 function showEntries(db, res, tablename) {
   var cursor = db.collection(tablename).find().limit(5)
@@ -99,7 +86,7 @@ router.get('/wipe', function(req, res) {
   	assert.equal(null, err)
     db.collection('life').remove( { } )
     db.close()	
-    res.send("{}")
+    res.send('{}')
   })
 })
 
@@ -132,7 +119,18 @@ router.post('/train', function(req, res) {
   })
 })
 
-app.use('/api', router)
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json({limit: '50mb'}))
+
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE')
+  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')
+  res.setHeader('Cache-Control', 'no-cache')
+  next()
+})
+app.use('/', router)
 app.listen(port, function() {
   console.log(`api running on port ${port}`)
 })

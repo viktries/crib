@@ -1,19 +1,18 @@
-import React, { Component } from 'react'
+import './style.css';
+
+import AppBar from 'material-ui/AppBar';
 import axios from 'axios'
-import ReactFileReader from 'react-file-reader'
-import ReactDOM from 'react-dom'
-import RaisedButton from 'material-ui/RaisedButton'
-import injectTapEventPlugin from 'react-tap-event-plugin'
+import Drawer from 'material-ui/Drawer'
+import Dropdown from './dropdown.js'
 import JsonTable from 'react-json-table';
 import MenuItem from 'material-ui/MenuItem'
-import Dropdown from './dropdown.js'
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer'
-import styles from './style.css';
+import RaisedButton from 'material-ui/RaisedButton'
+import React, { Component } from 'react'
+import ReactFileReader from 'react-file-reader'
+import ReactDOM from 'react-dom'
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
  
-// Needed for onTouchTap 
-// http://stackoverflow.com/a/34015469/988941 
+import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
 
 class Main extends Component {
